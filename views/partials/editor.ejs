@@ -1,0 +1,32 @@
+<% if(data.success) {%>
+    <%- include('success.ejs') %>
+<% } %>
+<% if(data.error) {%>
+    <%- include('error.ejs') %>
+<% } %>
+<script>
+    tinymce.init({
+      selector: 'textarea',
+      menubar: false,
+    });
+</script>
+<form action="/edit/<%= meditation.jour %>" method="POST">
+    <input type="hidden" id="id" name="id" value="<%= meditation.id %>" />
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="jour">Jour :</label>
+        <input type="text" class="col-sm-4 col-form-label form-control form-control-sm" id="jour" name="jour" value="<%= meditation.jour %>" disabled>
+        <button type="submit" class="btn btn-primary col-sm-2 form-control-sm" id="save-button">Sauvegarder</button>
+    </div>
+    <div class="form-group">
+        <label for="titre">Titre :</label>
+        <input type="titre" class="form-control" id="titre" name="titre" placeholder="Entrez le titre de la m&eacute;ditation ici" value="<%= meditation.titre %>">
+    </div>
+    <div class="form-group">
+        <label for="prelude">Pr&eacute;lude :</label>
+        <textarea class="form-control" id="prelude" name="prelude" rows="3"><%= meditation.prelude %></textarea>
+    </div>
+    <div class="form-group">
+        <label for="prelude">Message :</label>
+        <textarea class="form-control" id="message" name="message" rows="3"><%= meditation.message %></textarea>
+    </div>
+</form>

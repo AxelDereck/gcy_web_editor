@@ -1,0 +1,19 @@
+<%- include('partials/header.ejs', {months: data.months}) %>
+    <div class="d-flex flex-row">
+        <div class="d-flex selection-list">
+            <% if (data.meditations.length > 0) {%>
+                <ul class="list-group">
+                <% data.meditations.forEach(function(meditation){ %>
+                    <a href=""><li class="list-group-item"><%= meditation.jour %></li></a>
+                <% }) %>
+                </ul>
+            <% } %>
+        </div>
+          
+        <div class="d-flex">
+            
+        </div>
+    </div>
+</div>
+</body>
+</html>
